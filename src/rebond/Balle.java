@@ -2,20 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 class Balle extends JPanel implements ActionListener {
-	private double x = 100; // Position initiale x
-	private double y = 150; // Position initiale y
-	private double xVel = 2; // Vitesse initiale x
-	private double yVel = -2; // Vitesse initiale y (vers le haut)
-	private double gravity = 0.1; // Gravité
-	private double bounceLoss = 0.85; // Perte d'énergie lors des rebonds
-	private double mass = 2.0; // Masse de la balle
+	private double x = 100;
+	private double y = 150;
+	private double xVel = 0; // Initialise la vitesse à zéro
+	private double yVel = 0; // Initialise la vitesse à zéro
+	private double gravity = 0.2;
+	private double bounceLoss = 0.8;
+	private double mass = 0.1;
+	private double friction = 0.98;
+	private double stopThreshold = 0.1;
 
-	Timer timer = new Timer(5, this);
+	Timer timer = new Timer(8, this);
 
 	public Balle() {
 		timer.start();
+		lancerBalle();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -25,26 +29,36 @@ class Balle extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		double netForce = gravity * mass; // Calculer la force due à la gravité
+		yVel += gravity;
 
-		// Calculer l'accélération
-		double acceleration = netForce / mass;
-
-		// Appliquer l'accélération à la vitesse verticale
-		yVel += acceleration;
-
-		// Vérifier les rebonds contre les bords
-		if (x >= 560 || x <= 0) {
-			xVel = -xVel * bounceLoss; // Rebond avec perte d'énergie
-		}
-		if (y >= 360 || y <= 0) {
-			yVel = -yVel * bounceLoss; // Rebond avec perte d'énergie
-		}
-
-		// Mettre à jour la position
 		x += xVel;
 		y += yVel;
 
+		if (x >= 560 || x <= 0) {
+			xVel = -xVel * bounceLoss;
+		}
+
+		if (y >= 360) {
+			y = 360;
+			yVel = -yVel * bounceLoss;
+			xVel *= friction;
+		}
+
+		// Vérifier si la balle doit s'arrêter
+		if (Math.abs(xVel) < stopThreshold && Math.abs(yVel) < stopThreshold) {
+			xVel = 0;
+			yVel = 0;
+			timer.stop();
+		}
+
 		repaint();
+	}
+
+	public void lancerBalle() {
+		Random rand = new Random();
+		double angle = Math.toRadians(rand.nextDouble() * 360); // Direction aléatoire
+		double force = rand.nextDouble() * 10; // Force aléatoire
+		xVel = force * Math.cos(angle);
+		yVel = force * Math.sin(angle);
 	}
 }

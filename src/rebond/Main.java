@@ -5,7 +5,8 @@ public class Main {
 		JFrame frame = new JFrame("Balle Rebondissante");
 		Balle balle = new Balle();
 		frame.add(balle);
-		frame.setSize(600, 430);
+		frame.setSize(600, 429);
+		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
