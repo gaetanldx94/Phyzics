@@ -1,6 +1,6 @@
 # Phyzics
 
-Phyzics est un projet Java qui regroupe plusieurs simulations d'objets et de concepts physiques en 2D. Il offre la possibilité d'être compilé en fonction de votre système d'exploitation, que ce soit sur Windows ou Linux.
+Phyzics est un projet Java qui regroupe plusieurs simulations d'objets et de concepts physiques en 2D. Il offre la possibilité d'être compilé en fonction de votre système d'exploitation.
 
 ## Structure du Projet
 
@@ -17,7 +17,7 @@ Choisissez le dossier correspondant à votre système d'exploitation :
 
 ### Exécution / Utilisation
 
-Une fois compilé, vous pouvez exécuter le programme. Vous trouverez un fichier `engine` dans les dossiers `linux` et `windows` qui vous permettra de sélectionner le simulateur de votre choix grâce à un menu convivial.
+Une fois compilé, vous pouvez exécuter le programme. Vous trouverez un fichier `engine` dans les dossiers `linux` et `windows` qui vous permettra de sélectionner le simulateur de votre choix grâce à un menu.
 
 ## Plateformes Supportées
 
