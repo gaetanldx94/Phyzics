@@ -8,6 +8,10 @@ Phyzics est un projet Java qui regroupe plusieurs simulations d'objets et de con
 - Le dossier `bin` contient les fichiers compilés.
 - Le dossier `exe` contient les exécutables.
 
+## Plateformes Supportées
+
+Phyzics prend en charge les systèmes d'exploitation Windows et Linux.
+
 ### Compilation
 
 Choisissez le dossier correspondant à votre système d'exploitation :
@@ -18,10 +22,6 @@ Choisissez le dossier correspondant à votre système d'exploitation :
 ### Exécution / Utilisation
 
 Une fois compilé, vous pouvez exécuter le programme. Vous trouverez un fichier `engine` dans les dossiers `linux` et `windows` qui vous permettra de sélectionner le simulateur de votre choix grâce à un menu.
-
-## Plateformes Supportées
-
-Phyzics prend en charge les systèmes d'exploitation Windows et Linux.
 
 ## Licence
 
