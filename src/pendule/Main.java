@@ -12,7 +12,7 @@ public class Main {
 		frame.setSize(500, 500);
 		frame.setVisible(true);
 
-		javax.swing.Timer timer = new javax.swing.Timer(16, new ActionListener() {
+		javax.swing.Timer timer = new javax.swing.Timer(8, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				gui.step();
