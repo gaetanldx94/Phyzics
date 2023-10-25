@@ -6,9 +6,10 @@ show_menu() {
 	echo "=========================="
 	echo "1. Pendule Double"
 	echo "2. Balle rebondissante"
+	echo "3. Fluide"
 	echo "0. Quitter"
 	echo "=========================="
-	echo "Choisissez une option (0-2):"
+	echo "Choisissez une option (0-3):"
 }
 
 while true
@@ -24,6 +25,9 @@ do
 			;;
 		2)
 			java -jar exe/rebond.jar
+			;;
+		3)
+			java -jar exe/fluide.jar
 			;;
 		0)
 			echo "Au revoir!"
